@@ -1,0 +1,31 @@
+{
+    "name": "imper86/php-baselinker-api",
+    "description": "Simple wrapper for Baselinker.com API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "imper",
+            "email": "me@imper.info"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "imper86/php-http-cache-plugin": "^1.6",
+        "imper86/http-client-builder": "^1.0",
+        "myclabs/php-enum": "^1.8"
+    },
+    "require-dev": {
+        "imper86/vbump": "^v1.0",
+        "php-http/guzzle6-adapter": "^2.0",
+        "http-interop/http-factory-guzzle": "^1.0",
+        "phpstan/phpstan": "^0.12.80",
+        "symfony/var-dumper": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Imper86\\PhpBaselinkerApi\\": "src"
+        }
+    }
+}
