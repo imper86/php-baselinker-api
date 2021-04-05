@@ -1,0 +1,189 @@
+<?php
+
+namespace Imper86\PhpBaselinkerApi\Model\Orders\GetOrders;
+
+class OrderProduct
+{
+    private string $storage;
+    private int $storageId;
+    private int $orderProductId;
+    private int $productId;
+    private int $variantId;
+    private string $name;
+    private string $sku;
+    private string $ean;
+    private string $auctionId;
+    private string $attributes;
+    private float $priceBrutto;
+    private int $taxRate;
+    private int $quantity;
+    private float $weight;
+
+    public function __construct(
+        string $storage,
+        int $storageId,
+        int $orderProductId,
+        int $productId,
+        int $variantId,
+        string $name,
+        string $sku,
+        string $ean,
+        string $auctionId,
+        string $attributes,
+        float $priceBrutto,
+        int $taxRate,
+        int $quantity,
+        float $weight
+    ) {
+        $this->storage = $storage;
+        $this->storageId = $storageId;
+        $this->orderProductId = $orderProductId;
+        $this->productId = $productId;
+        $this->variantId = $variantId;
+        $this->name = $name;
+        $this->sku = $sku;
+        $this->ean = $ean;
+        $this->auctionId = $auctionId;
+        $this->attributes = $attributes;
+        $this->priceBrutto = $priceBrutto;
+        $this->taxRate = $taxRate;
+        $this->quantity = $quantity;
+        $this->weight = $weight;
+    }
+
+    /**
+     * @param mixed[] $data
+     * @return self
+     */
+    public static function fromPrimitives(array $data): self
+    {
+        return new self(
+            $data['storage'],
+            $data['storage_id'],
+            $data['order_product_id'],
+            $data['product_id'],
+            $data['variant_id'],
+            $data['name'],
+            $data['sku'],
+            $data['ean'],
+            $data['auction_id'],
+            $data['attributes'],
+            $data['price_brutto'],
+            $data['tax_rate'],
+            $data['quantity'],
+            $data['weight'],
+        );
+    }
+
+    /**
+     * @return string
+     */
+    public function getStorage(): string
+    {
+        return $this->storage;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStorageId(): int
+    {
+        return $this->storageId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOrderProductId(): int
+    {
+        return $this->orderProductId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProductId(): int
+    {
+        return $this->productId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVariantId(): int
+    {
+        return $this->variantId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSku(): string
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEan(): string
+    {
+        return $this->ean;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuctionId(): string
+    {
+        return $this->auctionId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttributes(): string
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPriceBrutto(): float
+    {
+        return $this->priceBrutto;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTaxRate(): int
+    {
+        return $this->taxRate;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantity(): int
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @return float
+     */
+    public function getWeight(): float
+    {
+        return $this->weight;
+    }
+}

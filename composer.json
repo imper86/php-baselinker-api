@@ -14,7 +14,8 @@
         "ext-json": "*",
         "imper86/php-http-cache-plugin": "^1.6",
         "imper86/http-client-builder": "^1.0",
-        "myclabs/php-enum": "^1.8"
+        "myclabs/php-enum": "^1.8",
+        "jawira/case-converter": "^3.4"
     },
     "require-dev": {
         "imper86/vbump": "^v1.0",
