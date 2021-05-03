@@ -5,7 +5,7 @@ namespace Imper86\PhpBaselinkerApi\Model\ProductsStorage\GetProductsList;
 class Product
 {
     private string $productId;
-    private string $ean;
+    private ?string $ean;
     private string $sku;
     private string $name;
     private int $quantity;
@@ -13,7 +13,7 @@ class Product
 
     public function __construct(
         string $productId,
-        string $ean,
+        ?string $ean,
         string $sku,
         string $name,
         int $quantity,
@@ -52,9 +52,9 @@ class Product
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEan(): string
+    public function getEan(): ?string
     {
         return $this->ean;
     }
