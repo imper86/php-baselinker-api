@@ -10,10 +10,10 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": ">=7.4",
         "ext-json": "*",
-        "imper86/php-http-cache-plugin": "^1.6",
-        "imper86/http-client-builder": "^1.0",
+        "imper86/php-http-cache-plugin": "^2.0",
+        "imper86/http-client-builder": "^2.0",
         "myclabs/php-enum": "^1.8",
         "jawira/case-converter": "^3.4"
     },
