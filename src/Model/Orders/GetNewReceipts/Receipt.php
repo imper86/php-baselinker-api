@@ -88,7 +88,7 @@ class Receipt
             $data['nip'],
             array_map(
                 fn(array $productData) => Product::fromPrimitives($productData),
-                $data['products'],
+                $data['products'] ?? [],
             ),
         );
     }

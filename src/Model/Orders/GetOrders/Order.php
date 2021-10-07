@@ -248,7 +248,7 @@ class Order
             $data['pack_state'],
             array_map(
                 fn(array $productData) => OrderProduct::fromPrimitives($productData),
-                $data['products'],
+                $data['products'] ?? [],
             ),
         );
     }
