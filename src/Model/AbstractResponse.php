@@ -18,7 +18,7 @@ abstract class AbstractResponse implements ResponseInterface
     /**
      * @var mixed[]
      */
-    protected array $body;
+    protected ?array $body;
     /**
      * @var Status
      */
