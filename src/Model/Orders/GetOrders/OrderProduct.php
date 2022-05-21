@@ -7,8 +7,8 @@ class OrderProduct
     private string $storage;
     private int $storageId;
     private int $orderProductId;
-    private int $productId;
-    private int $variantId;
+    private ?int $productId;
+    private ?int $variantId;
     private string $name;
     private string $sku;
     private string $ean;
@@ -23,8 +23,8 @@ class OrderProduct
         string $storage,
         int $storageId,
         int $orderProductId,
-        int $productId,
-        int $variantId,
+        ?int $productId,
+        ?int $variantId,
         string $name,
         string $sku,
         string $ean,
@@ -57,6 +57,14 @@ class OrderProduct
      */
     public static function fromPrimitives(array $data): self
     {
+        if ('' === $data['product_id']) {
+            $data['product_id'] = null;
+        }
+
+        if ('' === $data['variant_id']) {
+            $data['variant_id'] = null;
+        }
+
         return new self(
             $data['storage'],
             $data['storage_id'],
