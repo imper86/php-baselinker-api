@@ -75,19 +75,19 @@ class ProductData
     /**
      * @var string
      */
-    private string $descriptionExtra1;
+    private ?string $descriptionExtra1;
     /**
      * @var string
      */
-    private string $descriptionExtra2;
+    private ?string $descriptionExtra2;
     /**
      * @var string
      */
-    private string $descriptionExtra3;
+    private ?string $descriptionExtra3;
     /**
      * @var string
      */
-    private string $descriptionExtra4;
+    private ?string $descriptionExtra4;
     /**
      * @var Feature[]
      */
@@ -134,11 +134,11 @@ class ProductData
         array $images,
         array $features,
         array $variants,
-        string $description,
-        string $descriptionExtra1,
-        string $descriptionExtra2,
-        string $descriptionExtra3,
-        string $descriptionExtra4
+        ?string $description,
+        ?string $descriptionExtra1,
+        ?string $descriptionExtra2,
+        ?string $descriptionExtra3,
+        ?string $descriptionExtra4
     ) {
         $this->productId = $productId;
         $this->ean = $ean;
