@@ -110,7 +110,7 @@ class OrderProduct
     /**
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId(): ?int
     {
         return $this->productId;
     }
@@ -118,7 +118,7 @@ class OrderProduct
     /**
      * @return int
      */
-    public function getVariantId(): int
+    public function getVariantId(): ?int
     {
         return $this->variantId;
     }
