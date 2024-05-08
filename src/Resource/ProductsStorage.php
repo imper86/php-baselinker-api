@@ -31,13 +31,6 @@ use Imper86\PhpBaselinkerApi\Model\ProductsStorage\UpdateProductsQuantity\Update
 
 class ProductsStorage extends AbstractResource
 {
-    //    public function test(string $method, ?array $request = null): array
-    //    {
-    //        $response = $this->sendRequest($method, $request);
-    //
-    //        return json_decode($response->getBody()->__toString(), true);
-    //    }
-
     public function getStoragesList(): GetStoragesListResponse
     {
         return new GetStoragesListResponse($this->sendRequest(__FUNCTION__));
