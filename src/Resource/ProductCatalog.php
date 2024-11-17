@@ -7,6 +7,8 @@ namespace Imper86\PhpBaselinkerApi\Resource;
 use Imper86\PhpBaselinkerApi\Model\AbstractResource;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\AddInventoryProduct\AddInventoryProductRequest;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\AddInventoryProduct\AddInventoryProductResponse;
+use Imper86\PhpBaselinkerApi\Model\ProductCatalog\DeleteInventoryProduct\DeleteInventoryProductRequest;
+use Imper86\PhpBaselinkerApi\Model\ProductCatalog\DeleteInventoryProduct\DeleteInventoryProductResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventories\GetInventoriesResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsData\GetInventoryProductsDataRequest;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsData\GetInventoryProductsDataResponse;
@@ -43,6 +45,11 @@ class ProductCatalog extends AbstractResource
     public function addInventoryProduct(AddInventoryProductRequest $request): AddInventoryProductResponse
     {
         return new AddInventoryProductResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
+    }
+
+    public function deleteInventoryProduct(DeleteInventoryProductRequest $request): DeleteInventoryProductResponse
+    {
+        return new DeleteInventoryProductResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
     }
 
     public function getInventoryProductsData(GetInventoryProductsDataRequest $request): GetInventoryProductsDataResponse
