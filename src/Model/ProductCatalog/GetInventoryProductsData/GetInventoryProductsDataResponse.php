@@ -7,7 +7,8 @@ use Psr\Http\Message\ResponseInterface as HttpResponseInterface;
 
 use function array_map;
 
-class GetInventoryProductsDataResponse extends AbstractResponse {
+class GetInventoryProductsDataResponse extends AbstractResponse
+{
     /**
      * @var Product[]|null
      */
@@ -19,7 +20,7 @@ class GetInventoryProductsDataResponse extends AbstractResponse {
 
         if (isset($this->body['products'])) {
             $this->products = array_map(
-                static fn (array $data): Product => Product::fromPrimitives($data),
+                static fn(array $data): Product => Product::fromPrimitives($data),
                 $this->body['products'] ?? [],
             );
         }
