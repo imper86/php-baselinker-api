@@ -28,5 +28,10 @@
         "psr-4": {
             "Imper86\\PhpBaselinkerApi\\": "src"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
     }
 }
