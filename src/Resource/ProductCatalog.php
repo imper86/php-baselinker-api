@@ -19,6 +19,7 @@ use Imper86\PhpBaselinkerApi\Model\ProductCatalog\DeleteInventoryProduct\DeleteI
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventories\GetInventoriesResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryCategories\GetInventoryCategoriesRequest;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryCategories\GetInventoryCategoriesResponse;
+use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryManufacturers\GetInventoryManufacturersResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsData\GetInventoryProductsDataRequest;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsData\GetInventoryProductsDataResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsList\GetInventoryProductsListRequest;
@@ -97,5 +98,10 @@ class ProductCatalog extends AbstractResource
     public function deleteInventoryManufacturer(DeleteInventoryManufacturerRequest $request): EmptyResponse
     {
         return new EmptyResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
+    }
+
+    public function getInventoryManufacturers(): GetInventoryManufacturersResponse
+    {
+        return new GetInventoryManufacturersResponse($this->sendRequest(__FUNCTION__));
     }
 }
