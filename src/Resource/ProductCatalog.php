@@ -14,6 +14,8 @@ use Imper86\PhpBaselinkerApi\Model\ProductCatalog\DeleteInventoryCategory\Delete
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\DeleteInventoryProduct\DeleteInventoryProductRequest;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\DeleteInventoryProduct\DeleteInventoryProductResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventories\GetInventoriesResponse;
+use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryCategories\GetInventoryCategoriesRequest;
+use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryCategories\GetInventoryCategoriesResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsData\GetInventoryProductsDataRequest;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsData\GetInventoryProductsDataResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsList\GetInventoryProductsListRequest;
@@ -77,5 +79,10 @@ class ProductCatalog extends AbstractResource
     public function deleteInventoryCategory(DeleteInventoryCategoryRequest $request): EmptyResponse
     {
         return new EmptyResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
+    }
+
+    public function getInventoryCategories(GetInventoryCategoriesRequest $request): GetInventoryCategoriesResponse
+    {
+        return new GetInventoryCategoriesResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
     }
 }
