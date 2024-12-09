@@ -8,6 +8,8 @@ use Imper86\PhpBaselinkerApi\Model\AbstractResource;
 use Imper86\PhpBaselinkerApi\Model\EmptyResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\AddInventoryCategory\AddInventoryCategoryRequest;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\AddInventoryCategory\AddInventoryCategoryResponse;
+use Imper86\PhpBaselinkerApi\Model\ProductCatalog\AddInventoryManufacturer\AddInventoryManufacturerRequest;
+use Imper86\PhpBaselinkerApi\Model\ProductCatalog\AddInventoryManufacturer\AddInventoryManufacturerResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\AddInventoryProduct\AddInventoryProductRequest;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\AddInventoryProduct\AddInventoryProductResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\DeleteInventoryCategory\DeleteInventoryCategoryRequest;
@@ -84,5 +86,10 @@ class ProductCatalog extends AbstractResource
     public function getInventoryCategories(GetInventoryCategoriesRequest $request): GetInventoryCategoriesResponse
     {
         return new GetInventoryCategoriesResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
+    }
+
+    public function addInventoryManufacturer(AddInventoryManufacturerRequest $request): AddInventoryManufacturerResponse
+    {
+        return new AddInventoryManufacturerResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
     }
 }
