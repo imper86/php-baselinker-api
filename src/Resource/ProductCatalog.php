@@ -27,6 +27,8 @@ use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsList\GetIn
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsList\GetInventoryProductsListResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsStock\GetInventoryProductsStockRequest;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\GetInventoryProductsStock\GetInventoryProductsStockResponse;
+use Imper86\PhpBaselinkerApi\Model\ProductCatalog\UpdateInventoryProductsPrices\UpdateInventoryProductsPricesRequest;
+use Imper86\PhpBaselinkerApi\Model\ProductCatalog\UpdateInventoryProductsPrices\UpdateInventoryProductsPricesResponse;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\UpdateInventoryProductsStock\UpdateInventoryProductsStockRequest;
 use Imper86\PhpBaselinkerApi\Model\ProductCatalog\UpdateInventoryProductsStock\UpdateInventoryProductsStockResponse;
 
@@ -109,5 +111,10 @@ class ProductCatalog extends AbstractResource
     public function getInventoryPriceGroups(): GetInventoryPriceGroupsResponse
     {
         return new GetInventoryPriceGroupsResponse($this->sendRequest(__FUNCTION__));
+    }
+
+    public function updateInventoryProductsPrices(UpdateInventoryProductsPricesRequest $request): UpdateInventoryProductsPricesResponse
+    {
+        return new UpdateInventoryProductsPricesResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
     }
 }
