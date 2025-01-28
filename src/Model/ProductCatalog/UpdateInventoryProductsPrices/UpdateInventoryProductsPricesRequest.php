@@ -11,7 +11,7 @@ class UpdateInventoryProductsPricesRequest extends AbstractRequest
 
     public function __construct(
         int $inventoryId,
-        array $products,
+        array $products
     ) {
         $this->inventoryId = $inventoryId;
         $this->products = $products;
