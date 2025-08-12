@@ -4,6 +4,7 @@ namespace Imper86\PhpBaselinkerApi\Model\Orders\GetOrders;
 
 class OrderDelivery
 {
+    private int $methodId;
     private string $method;
     private float $price;
     private string $packageModule;
@@ -17,6 +18,7 @@ class OrderDelivery
     private string $countryCode;
 
     public function __construct(
+        int $methodId,
         string $method,
         float $price,
         string $packageModule,
@@ -29,6 +31,7 @@ class OrderDelivery
         string $country,
         string $countryCode
     ) {
+        $this->methodId = $methodId;
         $this->method = $method;
         $this->price = $price;
         $this->packageModule = $packageModule;
@@ -49,6 +52,7 @@ class OrderDelivery
     public static function fromPrimitives(array $data): self
     {
         return new self(
+            $data['delivery_method_id'],
             $data['delivery_method'],
             $data['delivery_price'],
             $data['delivery_package_module'],
@@ -61,6 +65,14 @@ class OrderDelivery
             $data['delivery_country'],
             $data['delivery_country_code'],
         );
+    }
+
+    /**
+     * @return int
+     */
+    public function getMethodId(): int
+    {
+        return $this->methodId;
     }
 
     /**
