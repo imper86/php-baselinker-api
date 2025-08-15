@@ -49,7 +49,7 @@ class GetOrdersRequest implements RequestInterface
 
     public function toArray(): array
     {
-        return [
+        $result = [
             'order_id' => $this->orderId,
             'date_confirmed_from' => $this->dateConfirmedFrom,
             'date_from' => $this->dateFrom,
@@ -58,10 +58,15 @@ class GetOrdersRequest implements RequestInterface
             'include_custom_extra_fields' => $this->includeCustomExtraFields,
             'status_id' => $this->statusId,
             'filter_email' => $this->filterEmail,
-            'filter_order_source' => $this->filterOrderSource,
-            'filter_order_source_id' => $this->filterOrderSourceId,
             'with_commission' => $this->withCommission,
             'filter_shop_order_id' => $this->filterShopOrderId,
         ];
+
+        if ($this->filterOrderSource !== null && $this->filterOrderSource !== '') {
+            $result['filter_order_source'] = $this->filterOrderSource;
+            $result['filter_order_source_id'] = $this->filterOrderSourceId;
+        }
+
+        return $result;
     }
 }

@@ -5,11 +5,11 @@ namespace Imper86\PhpBaselinkerApi\Model\Orders\GetOrders;
 class OrderCustomExtraField
 {
     private string $key;
-    private $value;
+    private mixed $value;
 
     public function __construct(
         string $key,
-        $value
+        mixed $value
     ) {
         $this->key = $key;
         $this->value = $value;
@@ -27,18 +27,12 @@ class OrderCustomExtraField
         );
     }
 
-    /**
-     * @return string
-     */
     public function getKey(): string
     {
         return $this->key;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getValue()
+    public function getValue(): mixed
     {
         return $this->value;
     }

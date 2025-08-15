@@ -27,6 +27,7 @@ use Imper86\PhpBaselinkerApi\Model\Orders\GetOrderStatusList\GetOrderStatusListR
 use Imper86\PhpBaselinkerApi\Model\Orders\GetReceipt\GetReceiptRequest;
 use Imper86\PhpBaselinkerApi\Model\Orders\GetReceipt\GetReceiptResponse;
 use Imper86\PhpBaselinkerApi\Model\Orders\GetSeries\GetSeriesResponse;
+use Imper86\PhpBaselinkerApi\Model\Orders\GetOrderSources\GetOrderSourcesResponse;
 use Imper86\PhpBaselinkerApi\Model\Orders\SetOrderFields\SetOrderFieldsRequest;
 use Imper86\PhpBaselinkerApi\Model\Orders\SetOrderPayment\SetOrderPaymentRequest;
 use Imper86\PhpBaselinkerApi\Model\Orders\SetOrderProductFields\SetOrderProductFieldsRequest;
@@ -68,6 +69,11 @@ class Orders extends AbstractResource
     public function getSeries(): GetSeriesResponse
     {
         return new GetSeriesResponse($this->sendRequest(__FUNCTION__));
+    }
+
+    public function getOrderSources(): GetOrderSourcesResponse
+    {
+        return new GetOrderSourcesResponse($this->sendRequest(__FUNCTION__));
     }
 
     public function getOrderStatusList(): GetOrderStatusListResponse
