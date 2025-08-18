@@ -7,12 +7,14 @@ class Status
     private int $id;
     private string $name;
     private string $nameForCustomer;
+    private string $color;
 
-    public function __construct(int $id, string $name, string $nameForCustomer)
+    public function __construct(int $id, string $name, string $nameForCustomer, string $color)
     {
         $this->id = $id;
         $this->name = $name;
         $this->nameForCustomer = $nameForCustomer;
+        $this->color = $color;
     }
 
     /**
@@ -21,7 +23,7 @@ class Status
      */
     public static function fromPrimitives(array $data): self
     {
-        return new self($data['id'], $data['name'], $data['name_for_customer']);
+        return new self($data['id'], $data['name'], $data['name_for_customer'], $data['color']);
     }
 
     /**
@@ -47,4 +49,13 @@ class Status
     {
         return $this->nameForCustomer;
     }
+
+    /**
+     * @return string
+     */
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
 }
