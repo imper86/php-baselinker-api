@@ -33,6 +33,7 @@ use Imper86\PhpBaselinkerApi\Model\Orders\SetOrderPayment\SetOrderPaymentRequest
 use Imper86\PhpBaselinkerApi\Model\Orders\SetOrderProductFields\SetOrderProductFieldsRequest;
 use Imper86\PhpBaselinkerApi\Model\Orders\SetOrderReceipt\SetOrderReceiptRequest;
 use Imper86\PhpBaselinkerApi\Model\Orders\SetOrderStatus\SetOrderStatusRequest;
+use Imper86\PhpBaselinkerApi\Model\Orders\SetOrderStatuses\SetOrderStatusesRequest;
 
 class Orders extends AbstractResource
 {
@@ -125,6 +126,11 @@ class Orders extends AbstractResource
     }
 
     public function setOrderStatus(SetOrderStatusRequest $request): EmptyResponse
+    {
+        return new EmptyResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
+    }
+
+    public function setOrderStatuses(SetOrderStatusesRequest $request): EmptyResponse
     {
         return new EmptyResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
     }
