@@ -104,6 +104,11 @@ class Order
      * @var string
      */
     private string $extraField2;
+
+    /**
+     * @var CustomExtraField[]
+     */
+    private array $customExtraFields = [];
     /**
      * @var string
      */
@@ -116,6 +121,12 @@ class Order
      * @var int
      */
     private int $packState;
+
+    /**
+     * @var OrderCommission[]
+     */
+     private array $commission;
+
     /**
      * @var OrderProduct[]
      */
@@ -147,9 +158,11 @@ class Order
      * @param bool $wantInvoice
      * @param string $extraField1
      * @param string $extraField2
+     * @param CustomExtraField[] $customExtraFields
      * @param string $orderPage
      * @param int $pickState
      * @param int $packState
+     * @param OrderCommission[] $commission
      * @param OrderProduct[] $products
      */
     public function __construct(
@@ -177,9 +190,11 @@ class Order
         bool $wantInvoice,
         string $extraField1,
         string $extraField2,
+        array $customExtraFields,
         string $orderPage,
         int $pickState,
         int $packState,
+        array $commission,
         array $products
     ) {
         $this->orderId = $orderId;
@@ -206,9 +221,11 @@ class Order
         $this->wantInvoice = $wantInvoice;
         $this->extraField1 = $extraField1;
         $this->extraField2 = $extraField2;
+        $this->customExtraFields = $customExtraFields;
         $this->orderPage = $orderPage;
         $this->pickState = $pickState;
         $this->packState = $packState;
+        $this->commission = $commission;
         $this->products = $products;
     }
 
@@ -243,9 +260,14 @@ class Order
             $data['want_invoice'],
             $data['extra_field_1'],
             $data['extra_field_2'],
+            self::createCustomExtraFields($data['custom_extra_fields'] ?? []),
             $data['order_page'],
             $data['pick_state'],
             $data['pack_state'],
+            array_map(
+                fn(array $commissionData) => OrderCommission::fromPrimitives($commissionData),
+                $data['commission'] ?? [],
+            ),
             array_map(
                 fn(array $productData) => OrderProduct::fromPrimitives($productData),
                 $data['products'] ?? [],
@@ -446,6 +468,14 @@ class Order
     }
 
     /**
+     * @return CustomExtraField[]
+     */
+    public function getCustomExtraFields(): array
+    {
+        return $this->customExtraFields;
+    }
+
+    /**
      * @return string
      */
     public function getOrderPage(): string
@@ -470,10 +500,28 @@ class Order
     }
 
     /**
+     * @return OrderCommission[]
+     */
+    public function getCommission(): array
+    {
+        return $this->commission;
+    }
+
+    /**
      * @return OrderProduct[]
      */
     public function getProducts(): array
     {
         return $this->products;
+    }
+
+
+    private static function createCustomExtraFields(array $fields): array
+    {
+        $result = [];
+        foreach ($fields as $key => $value) {
+            $result[] = new OrderCustomExtraField((string) $key, $value);
+        }
+        return $result;
     }
 }
