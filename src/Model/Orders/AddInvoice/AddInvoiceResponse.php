@@ -15,4 +15,12 @@ class AddInvoiceResponse extends AbstractResponse
 
         $this->invoiceId = $this->body['invoice_id'] ?? null;
     }
+
+    /**
+     * @return int|null
+     */
+    public function getInvoiceId(): ?int
+    {
+        return $this->invoiceId;
+    }
 }

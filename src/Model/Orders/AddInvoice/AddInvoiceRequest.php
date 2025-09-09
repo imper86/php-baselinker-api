@@ -9,10 +9,13 @@ class AddInvoiceRequest implements RequestInterface
     private int $orderId;
     private int $seriesId;
 
-    public function __construct(int $orderId, int $seriesId)
+    private mixed $vatRate;
+
+    public function __construct(int $orderId, int $seriesId, mixed $vatRate = 'DEFAULT')
     {
         $this->orderId = $orderId;
         $this->seriesId = $seriesId;
+        $this->vatRate = $vatRate;
     }
 
     public function toArray(): array
@@ -20,6 +23,7 @@ class AddInvoiceRequest implements RequestInterface
         return [
             'order_id' => $this->orderId,
             'series_id' => $this->seriesId,
+            'vat_rate' => $this->vatRate,
         ];
     }
 }
