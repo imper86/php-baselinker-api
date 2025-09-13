@@ -6,6 +6,7 @@ use Imper86\PhpBaselinkerApi\Model\AbstractResource;
 use Imper86\PhpBaselinkerApi\Model\EmptyResponse;
 use Imper86\PhpBaselinkerApi\Model\Orders\AddInvoice\AddInvoiceRequest;
 use Imper86\PhpBaselinkerApi\Model\Orders\AddInvoice\AddInvoiceResponse;
+use Imper86\PhpBaselinkerApi\Model\Orders\AddOrderInvoiceFile\AddOrderInvoiceFileRequest;
 use Imper86\PhpBaselinkerApi\Model\Orders\AddOrderProduct\AddOrderProductRequest;
 use Imper86\PhpBaselinkerApi\Model\Orders\AddOrderProduct\AddOrderProductResponse;
 use Imper86\PhpBaselinkerApi\Model\Orders\DeleteOrderProduct\DeleteOrderProductRequest;
@@ -60,6 +61,11 @@ class Orders extends AbstractResource
     public function addInvoice(AddInvoiceRequest $request): AddInvoiceResponse
     {
         return new AddInvoiceResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
+    }
+
+    public function addOrderInvoiceFile(AddOrderInvoiceFileRequest $request): EmptyResponse
+    {
+        return new EmptyResponse($this->sendRequest(__FUNCTION__, $request->toArray()));
     }
 
     public function getInvoices(GetInvoicesRequest $request): GetInvoicesResponse
