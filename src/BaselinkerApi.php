@@ -8,12 +8,14 @@ use Http\Client\Common\Plugin;
 use Imper86\HttpClientBuilder\Builder;
 use Imper86\HttpClientBuilder\BuilderInterface;
 use Imper86\PhpBaselinkerApi\Model\ResourceInterface;
+use Imper86\PhpBaselinkerApi\Resource\CourierShipments;
 use Imper86\PhpBaselinkerApi\Resource\Orders;
 use Imper86\PhpBaselinkerApi\Resource\ProductCatalog;
 use Imper86\PhpBaselinkerApi\Resource\ProductsStorage;
 use Psr\Cache\CacheItemPoolInterface;
 
 /**
+ * @method CourierShipments courierShipments()
  * @method Orders orders()
  * @method ProductsStorage productsStorage()
  * @method ProductCatalog productCatalog()
