@@ -5,10 +5,10 @@ namespace Imper86\PhpBaselinkerApi\Model\CourierShipments\GetOrderPackages;
 use Imper86\PhpBaselinkerApi\Model\RequestInterface;
 
 /**
- * Class GeOrderPackagesRequest
+ * Class GetOrderPackagesRequest
  * @package Imper86\PhpBaselinkerApi\Model\CourierShipments\GetOrderPackages
  */
-class GeOrderPackagesRequest implements RequestInterface
+class GetOrderPackagesRequest implements RequestInterface
 {
     /**
      * @var int
@@ -16,7 +16,7 @@ class GeOrderPackagesRequest implements RequestInterface
     private int $orderId;
 
     /**
-     * GetNewReceiptsRequest constructor.
+     * GetOrderPackagesRequest constructor.
      * @param int $orderId
      */
     public function __construct(int $orderId)

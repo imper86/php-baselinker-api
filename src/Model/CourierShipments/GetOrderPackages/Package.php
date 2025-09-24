@@ -5,7 +5,7 @@ namespace Imper86\PhpBaselinkerApi\Model\CourierShipments\GetOrderPackages;
 
 /**
  * Class Package
- * @package Imper86\PhpBaselinkerApi\Model\CourierShipments\Package
+ * @package Imper86\PhpBaselinkerApi\Model\CourierShipments\GetOrderPackages
  */
 class Package
 {
@@ -214,7 +214,7 @@ class Package
     /**
      * @return bool
      */
-    public function IsReturn(): bool
+    public function isReturn(): bool
     {
         return $this->isReturn;
     }

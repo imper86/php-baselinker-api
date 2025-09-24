@@ -6,10 +6,10 @@ use Imper86\PhpBaselinkerApi\Model\AbstractResponse;
 use Psr\Http\Message\ResponseInterface as HttpResponseInterface;
 
 /**
- * Class GeOrderPackagesResponse
- * @package Imper86\PhpBaselinkerApi\Model\CourierShipments\GeOrderPackagesResponse
+ * Class GetOrderPackagesResponse
+ * @package Imper86\PhpBaselinkerApi\Model\CourierShipments\GetOrderPackages
  */
-class GeOrderPackagesResponse extends AbstractResponse
+class GetOrderPackagesResponse extends AbstractResponse
 {
     /**
      * @var Package[]|null
